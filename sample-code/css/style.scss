@@ -1,0 +1,285 @@
+$col1 : #DC143C; /* Crimson*/
+$col2 : #DB7093; /* Pale violet red*/
+$col3 : #000080; /* Navy*/
+$col4 : #000000; /* Black */
+$col5 : #FAF0E6; /* Linen*/
+$col6 : #808080; /* Gray*/
+$col7 : #800000; /* maroon*/
+$col8 : #cc0052; /**/
+
+@font-face {
+  font-family: sub;
+  src: url("../fonts/AlexBrush-Regular.ttf");
+}
+@font-face {
+  font-family: cname;
+  src: url("../fonts/New Walt Disney.ttf");
+}
+
+
+@mixin absolute-element($left, $width : auto, $height : auto, $top : auto)
+{
+	/*position : absolute;*/
+	left : $left;
+	top : $top;
+	width : $width;
+	height : $height;
+}
+@mixin align( $top : auto, $left : auto)
+{
+	position : absolute;
+	left : $left;
+	top : $top;
+}
+.certificate-wrapper 
+{
+	@include absolute-element(40mm, 297mm, 210mm, 5mm);
+	background: $col5;
+	overflow: hidden;
+	position: relative;
+	
+	.certificate-background
+	{
+		@include absolute-element(0mm, 100%, 100%);
+		overflow: hidden;
+		position: relative;
+		
+		.recttop
+		{
+			@include absolute-element(2.5mm, 142.5mm, 14.5mm);
+			background: $col1;
+			transform: skewX(-50deg);
+			position: relative;
+		}
+		.rectleft
+		{
+			width : 14.5mm;
+			height : 81mm;
+			top : -3.5mm;
+			background: $col1;
+			transform: skewY(-28deg);
+			position: absolute;
+		}
+		.tri1
+		{
+			@include absolute-element(0mm, 0mm, 0mm, 85mm);
+			border-style: solid;
+			border-width: 20pt 25pt 19pt 0;
+			border-color: transparent $col1 transparent transparent;
+			position: absolute;
+		}
+		.tri2
+		{
+			@include absolute-element(12mm, 0mm, 0mm, 80mm);
+			border-style: solid;
+			border-width: 34pt 0 33pt 55pt;
+			border-color: transparent transparent transparent $col1;
+			position: absolute;
+			z-index: 1;
+		}
+		.tri3
+		{
+			@include absolute-element(15mm, 0mm, 0mm, 71mm);
+		    border-style: solid;
+			border-width: 19pt 48pt 28pt 0;
+			border-color: transparent $col1 transparent transparent;
+			position: absolute;
+			z-index: 1;
+		}
+		.boxx
+		{
+			@include absolute-element(14mm, 267mm, 180mm, 0mm);
+			background-color: $col6;
+			opacity: 0.2;
+			position: relative;
+		}
+		.rectbtm
+		{
+			@include absolute-element(146mm, 160mm, 15mm, 194.5mm);
+			background: $col1;
+			transform: skewX(-50deg);
+			position: absolute;
+		}
+		.rectright
+		{
+			@include absolute-element(281mm, 16mm, 70mm, 131mm);
+			background: $col1;
+			transform: skewY(-25deg);
+			position: absolute;
+		}
+		.tri4
+		{
+			@include absolute-element(286.5mm, 0mm, 0mm, 112mm);
+			border-style: solid;
+			border-width: 19pt 0 18pt 28pt;
+			border-color: transparent transparent transparent $col1;
+			position: absolute;
+		}
+		.tri5
+		{
+			@include absolute-element(264mm, 0mm, 0mm, 104mm);
+			border-style: solid;
+			border-width: 37pt 55pt 34pt 0;
+			border-color: transparent $col1 transparent transparent;
+			position: absolute;
+		}
+		.tri6
+		{
+			@include absolute-element(263mm, 0mm, 0mm, 122mm);
+			border-style: solid;
+			border-width: 30pt 0 27pt 45pt;
+			border-color: transparent transparent transparent $col1;
+			position: absolute;
+		}
+		.boxbtm
+		{
+			@include absolute-element(14mm, 56mm, 54mm, 139.2mm);
+			border-left: 3pt solid $col7;
+			border-bottom: 3pt solid $col7;
+			position: absolute;
+		}
+		.boxtop
+		{
+			@include absolute-element(224mm, 56mm, 54mm, 14.5mm);
+			border-top: 3pt solid $col7;
+			border-right: 3pt solid $col7;
+			position: absolute;
+		}
+	}
+	.certificate-content
+	{
+		top: 20mm;
+		right: 20mm;
+		bottom: 20mm;
+		left: 20mm;
+		position: absolute;
+    
+		.title
+		{
+			@include align(12mm, 0mm);
+			right : 0mm;
+			font-size: 64pt;
+			text-shadow: 2mm 2mm 2mm $col2;
+			text-align : center;
+			margin : auto;
+		}
+		.sr-no
+		{
+			@include align(0mm, 0mm);
+			font-size: 16pt;
+			position: absolute;
+		}
+		.org-logo
+		{
+			left : 5mm;
+			bottom : 0mm;
+			position: absolute;
+			z-index : 2;
+			img
+			{
+				width : auto;
+				height : 26mm
+			}
+		}
+		.subtitle
+		{
+			@include align(30mm, 0mm);
+			right : 0mm;
+			color: $col8;
+			font-family: sub;
+			font-size: 35pt;
+			text-align : center;
+			margin : auto;
+		}
+		.initial-content
+		{
+			@include align(45mm, 0mm);
+			right : 0mm;
+			font-size: 17pt;
+			text-align : center;
+			margin : auto;
+			position: absolute;
+		}
+		.candidate-name
+		{
+			@include align(65mm, 0mm);
+			right : 0mm;
+			font-family: cname;
+			font-size: 69pt;
+			color: $col3;
+			text-align : center;
+			margin : auto;
+			position: absolute;
+		}
+		.main-content
+		{
+			@include align(86mm, 0mm);
+			right : 0mm;
+			font-size: 18pt;
+			text-align: center;
+			margin : auto;
+			position: absolute;
+		}
+		.certificate-logo
+		{
+			@include align(20mm);
+			right : 5mm;
+			position: absolute;
+			z-index: 1;
+			img
+			{
+				width : auto;
+				height : 30mm;
+			}
+		}
+		.date
+		{
+			@include align(1mm);
+			right : 8mm;
+			font-size: 17pt;
+			position: absolute;
+		}
+		.sign-director
+		{
+			@include align(133mm, 40mm);
+			font-size: 15pt;
+			border-top : 0.5pt solid;
+			line-height : 8mm;
+			position: absolute;
+		}
+		.sign-president
+		{
+			@include align(133mm, 155mm);
+			font-size: 15pt;
+			border-top : 0.5pt solid;
+			line-height : 8mm;
+			position: absolute;
+		}
+		.org-name
+		{
+			@include align(151mm);
+			right : 3mm;
+			text-align: right;
+			font-size: 13pt;
+			font-weight : bold;
+			position: absolute;
+		}
+		.org-address
+		{
+			right: 3mm;
+			bottom : 0mm;
+			width : 225mm;
+			height : 11mm;
+			text-align: right;
+			font-size: 13pt;
+			font-weight : bold;
+			position: absolute;
+			
+			p
+			{
+				margin-bottom : 0mm;
+				margin-top : 0mm;
+			}
+		}
+	}
+}

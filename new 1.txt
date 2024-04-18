@@ -1,0 +1,103 @@
+const {Builder, Browser, By, Key, until} = require('selenium-webdriver');
+
+(async function example() {
+  let driver = await new Builder().forBrowser(Browser.CHROME).build();
+  try {
+    await driver.get('file:///E:/Users/Saloni/Documents/Desktop/sample-code/preview.html');
+	
+	let certMaster={
+		title:'Certificate',
+		subtitle:'of Appreciation',
+		initialContent:'This Certificate is proudly presented to'
+	}
+	 await driver.findElement(By.className('title'));
+	 
+	 await driver.findElement(By.className(await 'subtitle'));
+	 await driver.findElement(By.className(await 'Certificate-logo'));
+	
+	
+	
+	
+	
+	<div class="candidate-name">Name of Candidate</div>
+	
+    await driver.wait(until.titleIs('webdriver - Google Search'), 1000);
+  } finally {
+    //await driver.quit();
+  }
+})();
+
+
+let certificatesrno = await driver.findElement(By.className('sr-no'));
+let text = "Certificate Number:";
+let result = text.match(/Certificate Number:/g);
+console.log("this is sr-no : ",await  certificatesrno.getText());
+
+
+// Function to check date format and replace slashes with hyphens
+async	function formatDate(dateString) {
+    // Regular expression to match the date format "Date: mm/dd/yyyy"
+    let regex = /^Date: (\d{2})\/(\d{2})\/(\d{4})$/;
+    
+    // Check if the date string matches the regex
+    if (regex.test(dateString)) {
+        // Extract date components
+        let matches = regex.exec(dateString);
+        let month = matches[1];
+        let day = matches[2];
+        let year = matches[3];
+
+        // Replace slashes with hyphens
+        let formattedDate = "Date: " + month + "-" + day + "-" + year;
+        
+        return formattedDate;
+    } else {
+        return "Invalid date format";
+    }
+}
+
+
+async function isValidDateFormat(dateString) {
+	let str=dateString.match(/^Date: \d{2}\/\d{2}\/\d{4}$/);
+    return(str); 
+ }
+
+
+
+async function isValidDateFormat(dateString) {
+    // Regular expression pattern to match the date format
+    let regexPattern = /^Date: \d{2}-\d{2}-\d{4}$/;
+    // Using match to get the matched groups
+    let matchResult = dateString.match(regexPattern);
+    // If matchResult is not null and it has captured groups
+    if (matchResult && matchResult[1]) {
+        return matchResult[1]; // Return the captured date string
+    } else {
+        return null; // Return null if no match or no captured groups
+    }
+} 
+	
+	
+	
+	
+	
+async function isNamePresent(name) {
+
+for (let i = 0; i < elements.length; i++) {
+let text = await elements[i].getText();
+if (text.includes(name)) {
+return true; // Name is present
+}
+}
+
+return false; // Name is not present
+}
+await driver.manage().setTimeouts({implicit: 5000 });
+let elements = await driver.findElement(By.className('candidate-name'));
+console.log(await elements.getText())
+console.log("Name of Candiate:", await isNamePresent(await elements.getText()));
+
+	
+	
+	
+	
